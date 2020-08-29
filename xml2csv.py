@@ -5,7 +5,7 @@ import glob
 import pandas as pd
 import xml.etree.ElementTree as ET
 
-os.chdir('/home/zhangwei/NewDisk/zhangwei/DL/data_person/train_csv') # 生成的文件放在哪个目录下
+os.chdir('/home/zhangwei/NewDisk/zhangwei/DL/data_person/data') # 生成的文件放在哪个目录下
 path = '/home/zhangwei/NewDisk/zhangwei/DL/data_person/train_xml'
 
 def xml_to_csv(path):

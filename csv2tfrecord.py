@@ -21,11 +21,11 @@ from PIL import Image
 from object_detection.utils import dataset_util
 from collections import namedtuple, OrderedDict
 
-os.chdir('/home/zhangwei/NewDisk/zhangwei/DL/data_person/train_csv')
+os.chdir('/home/zhangwei/NewDisk/zhangwei/DL/data_person/data')
 
 flags = tf.app.flags
-flags.DEFINE_string('csv_input', '/home/zhangwei/NewDisk/zhangwei/DL/data_person/train_csv/face_train.csv', 'Path to the CSV input')   # csv 所在目录 , 需改动
-flags.DEFINE_string('output_path', '/home/zhangwei/NewDisk/zhangwei/DL/data_person/train_tfrecord/train.tfrecords', 'Path to output TFRecord')  # 生成的 tfrecord 文件完整位置 , 需改动
+flags.DEFINE_string('csv_input', '/home/zhangwei/NewDisk/zhangwei/DL/data_person/data/face_train.csv', 'Path to the CSV input')   # csv 所在目录 , 需改动
+flags.DEFINE_string('output_path', '/home/zhangwei/NewDisk/zhangwei/DL/data_person/data/train.tfrecords', 'Path to output TFRecord')  # 生成的 tfrecord 文件完整位置 , 需改动
 FLAGS = flags.FLAGS
 
 # TO-DO replace this with label map
@@ -85,7 +85,7 @@ def create_tf_example(group, path):
 
 def main(_):
     writer = tf.python_io.TFRecordWriter(FLAGS.output_path)
-    path = '/home/zhangwei/NewDisk/zhangwei/DL/data_person/train'  #  图片所在的文件夹 , 需改动
+    path = '/home/zhangwei/NewDisk/zhangwei/DL/data_person/images/train'  #  图片所在的文件夹 , 需改动
     # path = os.path.join(os.getcwd(), 'images/test')
     examples = pd.read_csv(FLAGS.csv_input)
     grouped = split(examples, 'filename')

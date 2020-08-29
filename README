@@ -16,3 +16,30 @@ generate_tfrecord.py:
 
 
 对于训练集与测试集分别运行上述代码即可，得到train.record与test.record文件。
+
+
+
+扩展 ---  自建项目的文件结构可以参考:
+
+Object-Detection
+
+
+-data/
+--test_labels.csv
+
+--test.record
+
+--train_labels.csv
+
+--train.record
+
+
+-images/
+--test/
+---testingimages.jpg
+--train/
+---testingimages.jpg
+--...yourimages.jpg
+
+
+-training/   # 新建，用于一会训练模型使用
