@@ -6,3 +6,13 @@ pipline
 2.2*   生成 xml 格式, 每张图片对应一个 xml 文件
 2.3*   生成的 xml 文件 和其对应的图片放在一个文件夹下 , 使用 xml2csv.py , 配置路径制作成一个 csv 文件
 2.4*   使用 csv2tfrecord.py 生成 tfrecord 文件
+
+
+对于xml2csv.py，注意改变8,9行，os.chdir和path路径，以及35行，最后生成的csv文件的命名
+
+generate_tfrecord.py:
+            需要改动的,是 24 (?) 27  28  33  88  行
+
+
+
+对于训练集与测试集分别运行上述代码即可，得到train.record与test.record文件。
