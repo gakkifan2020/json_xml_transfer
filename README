@@ -1,0 +1,8 @@
+pipline
+
+1      收集图片,分成训练集和测试集两个文件夹
+2      标注训练集的图片, 工具为 labelme , 格式为 json , 每张图片对应一个 json 文件
+2.1*   如果需要 xml 格式,使用 json2xml.py ,配置好路径完成格式转换
+2.2*   生成 xml 格式, 每张图片对应一个 xml 文件
+2.3*   生成的 xml 文件 和其对应的图片放在一个文件夹下 , 使用 xml2csv.py , 配置路径制作成一个 csv 文件
+2.4*   使用 csv2tfrecord.py 生成 tfrecord 文件

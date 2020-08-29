@@ -5,8 +5,8 @@ import glob
 import pandas as pd
 import xml.etree.ElementTree as ET
 
-os.chdir('/home/zzf/tensorflow/models/research/object_detection/images/test')
-path = '/home/zzf/tensorflow/models/research/object_detection/images/test'
+os.chdir('/home/zhangwei/NewDisk/zhangwei/DL/data_person/train_xml')
+path = '/home/zhangwei/NewDisk/zhangwei/DL/data_person/train_xml'
 
 def xml_to_csv(path):
     xml_list = []
@@ -32,7 +32,7 @@ def xml_to_csv(path):
 def main():
     image_path = path
     xml_df = xml_to_csv(image_path)
-    xml_df.to_csv('zhangjn_train.csv', index=None)
+    xml_df.to_csv('face_train.csv', index=None)
     print('Successfully converted xml to csv.')
 
 
