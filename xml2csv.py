@@ -5,7 +5,7 @@ import glob
 import pandas as pd
 import xml.etree.ElementTree as ET
 
-os.chdir('/home/zhangwei/NewDisk/zhangwei/DL/data_person/train_xml')
+os.chdir('/home/zhangwei/NewDisk/zhangwei/DL/data_person/train_csv') # 生成的文件放在哪个目录下
 path = '/home/zhangwei/NewDisk/zhangwei/DL/data_person/train_xml'
 
 def xml_to_csv(path):
@@ -32,7 +32,7 @@ def xml_to_csv(path):
 def main():
     image_path = path
     xml_df = xml_to_csv(image_path)
-    xml_df.to_csv('face_train.csv', index=None)
+    xml_df.to_csv('face_train.csv', index=None)  # 最后生成的文件名
     print('Successfully converted xml to csv.')
 
 

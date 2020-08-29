@@ -1,7 +1,5 @@
 # generate_tfrecord.py
-
 # -*- coding: utf-8 -*-
-
 
 """
 Usage:
@@ -10,8 +8,9 @@ Usage:
   python generate_tfrecord.py --csv_input=data/tv_vehicle_labels.csv  --output_path=train.record
   # Create test data:
   python generate_tfrecord.py --csv_input=data/test_labels.csv  --output_path=test.record
-"""
 
+  需要改动的,是 27 (?) 30  31  37  92  行
+"""
 
 import os
 import io
@@ -22,17 +21,16 @@ from PIL import Image
 from object_detection.utils import dataset_util
 from collections import namedtuple, OrderedDict
 
-os.chdir('/home/zzf/tensorflow/models/research/object_detection')
+os.chdir('/home/zhangwei/NewDisk/zhangwei/DL/data_person/train_csv')
 
 flags = tf.app.flags
-flags.DEFINE_string('csv_input', '', 'Path to the CSV input')
-flags.DEFINE_string('output_path', '', 'Path to output TFRecord')
+flags.DEFINE_string('csv_input', '/home/zhangwei/NewDisk/zhangwei/DL/data_person/train_csv/face_train.csv', 'Path to the CSV input')   # csv 所在目录
+flags.DEFINE_string('output_path', '/home/zhangwei/NewDisk/zhangwei/DL/data_person/train_tfrecord/train.tfrecords', 'Path to output TFRecord')  # 生成的 tfrecord 文件完整位置
 FLAGS = flags.FLAGS
-
 
 # TO-DO replace this with label map
 def class_text_to_int(row_label):
-    if row_label == 'ZhangJN':     # 需改动
+    if row_label == 'face':     # 需改动
         return 1
     else:
         None
@@ -87,7 +85,8 @@ def create_tf_example(group, path):
 
 def main(_):
     writer = tf.python_io.TFRecordWriter(FLAGS.output_path)
-    path = os.path.join(os.getcwd(), 'images/test')         #  需改动
+    path = '/home/zhangwei/NewDisk/zhangwei/DL/data_person/train'
+    # path = os.path.join(os.getcwd(), 'images/test')         #  需改动
     examples = pd.read_csv(FLAGS.csv_input)
     grouped = split(examples, 'filename')
     for group in grouped:
