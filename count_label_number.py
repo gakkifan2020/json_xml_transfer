@@ -2,7 +2,7 @@ import xml.dom.minidom as xmldom
 import os
 
 #voc数据集获取所有标签的所有类别数"
-annotation_path="/home/chenxin/下载/Annotations"
+annotation_path="/home/zhangwei/NewDisk/zhangwei/DL/data_person/train_xml"
 
 annotation_names=[os.path.join(annotation_path,i) for i in os.listdir(annotation_path)]
 
